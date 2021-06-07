@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -18,7 +17,6 @@
     <link rel="stylesheet" href="static/css/flowStyle.css">
     <title>南网计量监控系统平台</title>
 </head>
-
 <body style="visibility: hidden;">
 	<div class="topTitle">
          <div class="left nav">
@@ -40,20 +38,17 @@
 	</div>
     <div class="container-flex" tabindex="0" hidefocus="true">
         <div class="box-left">
-            
             <div class="left-top">
                 <div class="title-box">
                     <h6>被访问资产比例</h6>
                 </div>
                 <div class="chart-box" style="">
                     <div id="queryAssets" style="width:100%;height:90%;"></div>
-                    
                 </div>
             </div>
             <div class="left-bottom" class="select">
                 <div class="title-box">
                     <h6>流量高发区域</h6>
-                    
                 </div>
                 <div class="chart-box">
                     <div id="flow_hotpoint" style="width:100%;height:90%;margin-top: 10px;"></div>
@@ -61,12 +56,10 @@
             </div>
         </div>
         <div class="box-center">
-          
             <div class="center-top">
                 <div class="chart-box">
                     <div id="china_map" style="width:100%;height:95%;"></div>
                 </div>
-                
             </div>
 			<div class="center-bottom">
 				<div class="title-box-center">
@@ -76,42 +69,28 @@
 					<div id="flowMax" style="width:100%;height:90%;margin-top:5px;margin-bottom:5px;"></div>
 				</div>
 			</div>
-
         </div>
         <div class="box-right">
             <div class="right-top">
 				
                 <div class="title-box">
                     <h6 id="barTitle">设备流量总数排行</h6>
-                    
                 </div>
                 <div class="chart-box">
                     <div id="r1Internal" style="width:100%;height:90%;"></div>
                 </div>
-                
             </div>
-			
 			<div class="right-center">
-            	
                 <div class="title-box">
                     <h6>设备流量时间趋势图</h6>
                 </div>
                 <div class="chart-box pie-chart">
-                    
                     <div id="r2Internal"style="width:100%;height:250px;"></div>
-                    
                 </div>
             </div>
-
-           
         </div>
     </div>
-
 </body>
-
-
-
-
 <script type="text/javascript" src="../static/js/flow/testmap.js"></script>
 <script type="text/javascript" src="static/js/flow/flowHotpoint.js"></script>
 <script type="text/javascript" src="static/js/flow/flowMax.js"></script>
@@ -119,19 +98,12 @@
 <script type="text/javascript" src="static/js/flow/equipmentFlowRank.js"></script>
 <script type="text/javascript" src="static/js/flow/queryAssets.js"></script>
 <script type="text/javascript" src="../static/js/controller.js"></script>
-
-
-
-
 <script type="text/javascript">
     $('document').ready(function () {
         $("body").css('visibility', 'visible');
         var localData = [$('#teacher').val(), $('#start').val() + '/' + $('#end').val(), $('#leader').val()]
         localStorage.setItem("data", localData);
-        
     })
 </script>
-
-
 
 </html>
