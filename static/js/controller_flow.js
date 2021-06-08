@@ -45,4 +45,4 @@ function get_flowHotpoint(){
 
 get_viewQueryAssets();
 get_flowTimeRank();
-get_flowHotpoint()
+get_flowHotpoint();

@@ -57,5 +57,11 @@ def flowHotpoint():
     flowHotpointData = utils.get_flowHotpoint()
     return jsonify({"data": flowHotpointData})
 
+
+@app.route('/normalAndAbnormalFlow',methods=['get','post'])
+def normalAndAbnormalFlow():
+    normalAndAbnormalFlowData = utils.get_normalAndAbnormalFlow()
+    return jsonify({"data":normalAndAbnormalFlowData})
+
 if __name__ == '__main__':
     app.run()

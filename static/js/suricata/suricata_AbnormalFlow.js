@@ -1,15 +1,16 @@
-var chartDom = document.getElementById('suricata_normalAndAbnormalFlow');
-var myChart = echarts.init(chartDom);
-var option;
+var normalAndAbnormalFlowChart = echarts.init(document.getElementById('suricata_normalAndAbnormalFlow'));
+var normalAndAbnormalFlowOption;
 
-option = {
+normalAndAbnormalFlowOption = {
     color: ['#5C7BD9', '#FF7070'],
     tooltip: {
         trigger: 'item'
     },
     legend: {
-        top: '0%',
-        left: 'center',
+        top: '5%',
+        orient: 'vertical',
+        left: 'left',
+        left:'5%',
         textStyle:{
             color: '#fff',
         }
@@ -18,7 +19,7 @@ option = {
         {
             name: '访问来源',
             type: 'pie',
-            radius: ['40%', '70%'],
+            radius: ['45%', '70%'],
             avoidLabelOverlap: false,
             itemStyle: {
                 borderRadius: 10,
@@ -47,4 +48,4 @@ option = {
     ]
 };
 
-option && myChart.setOption(option);
+normalAndAbnormalFlowOption && normalAndAbnormalFlowChart.setOption(normalAndAbnormalFlowOption);
