@@ -77,9 +77,18 @@ def get_flowHotpoint():
     res.reverse()
     return res[0:10]
 
+def get_normalAndAbnormalFlow():
+    database = 'use suricata'
+    sql = 'select * from suricata.t_zcyclltj'
+    temp = query(database, sql)
+    res = []
+    res.append({"value":temp[0][1],"name":'正常流量'})
+    res.append({"value":temp[0][2],"name":'异常流量'})
+    return res
 
 if __name__ == '__main__':
-    print(get_flowHotpoint())
+
+    print(get_normalAndAbnormalFlow())
     # print(res[0:10])
     # viewAssetData = []
     # res_queryAsset = get_queryAssetProportionData()
