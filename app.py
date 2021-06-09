@@ -16,7 +16,8 @@ def flow():
 
 @app.route('/suricata')
 def suricata():
-    return render_template("suricata.html")
+    attackDisplayData = utils.get_attackDisplay()
+    return render_template("suricata.html",attackDisplayData=attackDisplayData)
 
 @app.route('/assetManage')
 def assetManage():
@@ -57,11 +58,15 @@ def flowHotpoint():
     flowHotpointData = utils.get_flowHotpoint()
     return jsonify({"data": flowHotpointData})
 
-
 @app.route('/normalAndAbnormalFlow',methods=['get','post'])
 def normalAndAbnormalFlow():
     normalAndAbnormalFlowData = utils.get_normalAndAbnormalFlow()
     return jsonify({"data":normalAndAbnormalFlowData})
+
+@app.route('/attackType',methods=['get','post'])
+def attackType():
+    attackTypeData = utils.get_attackType()
+    return jsonify({"data":attackTypeData})
 
 if __name__ == '__main__':
     app.run()

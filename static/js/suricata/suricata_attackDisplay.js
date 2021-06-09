@@ -31,80 +31,82 @@
      '内网':[122.116,37.509]
  };
 
- var GZData = [
-     [{
-         name: '长沙'
-     }, {
-         name: '福州',
-         value: 95
-     }],
-     [{
-         name: '长沙'
-     }, {
-         name: '长春',
-         value: 80
-     }],
-     [{
-         name: '长沙'
-     }, {
-         name: '重庆',
-         value: 70
-     }],
-     [{
-         name: '海口'
-     }, {
-         name: '西安',
-         value: 260
-     }],
-     [{
-         name: '长沙'
-     }, {
-         name: '成都',
-         value: 50
-     }],
-     [{
-         name: '长沙'
-     }, {
-         name: '常州',
-         value: 40
-     }],
-     [{
-         name: '长沙'
-     }, {
-         name: '北京',
-         value: 30
-     }],
-     [{
-         name: '长沙'
-     }, {
-         name: '北海',
-         value: 20
-     }],
-     [{
-         name: '长沙'
-     }, {
-         name: '海口',
-         value: 10
-     }],
-     [{
-         name: '上海'
-     }, {
-         name: '青岛',
-         value: 180
-     }],
-     [{
-         name: '长沙'
-     }, {
-         name: '内蒙古',
-         value: 80
-     }],
-     [{
-         name: '福州'
-     }, {
-         name: '海外',
-         value: 280
-     }],
- ];
+ var GZData = Display.Data
+
+ // var GZData = [
+ //     [{
+ //         name: '长沙'
+ //     }, {
+ //         name: '福州',
+ //         value: 95
+ //     }],
+ //     [{
+ //         name: '长沙'
+ //     }, {
+ //         name: '长春',
+ //         value: 80
+ //     }],
+ //     [{
+ //         name: '长沙'
+ //     }, {
+ //         name: '重庆',
+ //         value: 70
+ //     }],
+ //     [{
+ //         name: '海口'
+ //     }, {
+ //         name: '西安',
+ //         value: 260
+ //     }],
+ //     [{
+ //         name: '长沙'
+ //     }, {
+ //         name: '成都',
+ //         value: 50
+ //     }],
+ //     [{
+ //         name: '长沙'
+ //     }, {
+ //         name: '常州',
+ //         value: 40
+ //     }],
+ //     [{
+ //         name: '长沙'
+ //     }, {
+ //         name: '北京',
+ //         value: 30
+ //     }],
+ //     [{
+ //         name: '长沙'
+ //     }, {
+ //         name: '北海',
+ //         value: 20
+ //     }],
+ //     [{
+ //         name: '长沙'
+ //     }, {
+ //         name: '海口',
+ //         value: 10
+ //     }],
+ //     [{
+ //         name: '上海'
+ //     }, {
+ //         name: '青岛',
+ //         value: 180
+ //     }],
+ //     [{
+ //         name: '长沙'
+ //     }, {
+ //         name: '内蒙古',
+ //         value: 80
+ //     }],
+ //     [{
+ //         name: '福州'
+ //     }, {
+ //         name: '海外',
+ //         value: 280
+ //     }],
+ // ];
 
  var convertData = function (data) {
      var res = [];
@@ -127,12 +129,12 @@
  var series = [];
 
  [
-     ['石家庄', GZData]
+     ['', GZData]
  ].forEach(function (item, i) {
      series.push({
          name: item[0],
          type: 'lines',
-         zlevel: 2,
+         zlevel: 1,
          symbol: ['none', 'arrow'],
          symbolSize: 10,
          effect: {
@@ -183,7 +185,7 @@
      });
  });
 
- option = {
+ mapChartOption = {
      title: {
             text: '攻击流量展示图',
             textStyle: {
@@ -201,7 +203,11 @@
                  show: false
              }
          },
-         roam: false,
+         roam: true,
+         scaleLimit: {  //控制滚轮缩放大小
+            max: 1.2,
+            min: 0.9
+        },
          itemStyle: {
              normal: {
                  //          	color: '#ddd',
@@ -237,7 +243,7 @@
  };
 
  // 使用刚指定的配置项和数据显示图表。
- mapChart.setOption(option);
+ mapChart.setOption(mapChartOption);
  window.addEventListener("resize", function () {
      mapChart.resize();
  });

@@ -11,4 +11,22 @@ function get_normalAndAbnormal(){
     })
 }
 
+function get_attackType(){
+    $.ajax({
+        url: "/attackType",
+        success:function (data){
+            $(".num h1").eq(0).text(data.data.dos);
+            $(".num h1").eq(1).text(data.data.brute_force);
+            $(".num h1").eq(2).text(data.data.info_detection);
+            $(".num h1").eq(3).text(data.data.virus_trojan);
+            $(".num h1").eq(4).text(data.data.application_attacks);
+            $(".num h1").eq(5).text(data.data.others);
+        },
+        error:function (){
+
+        }
+    })
+}
+
 get_normalAndAbnormal()
+get_attackType()
