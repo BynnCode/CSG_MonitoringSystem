@@ -35,9 +35,7 @@ var queryAssetOption = {
             labelLine: {
                 show: false
             },
-            data: [
-
-            ]
+            data: []
         }
     ]
 }

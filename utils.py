@@ -86,9 +86,26 @@ def get_normalAndAbnormalFlow():
     res.append({"value":temp[0][2],"name":'异常流量'})
     return res
 
-if __name__ == '__main__':
+def get_attackType():
+    database = 'use suricata'
+    sql = 'select * from suricata.t_gjlxtj'
+    res = query(database, sql)
+    return {"dos":res[0][1],"brute_force":res[0][2],"info_detection":res[0][3],"virus_trojan":res[0][4],"application_attacks":res[0][5],"others":res[0][6]}
 
-    print(get_normalAndAbnormalFlow())
+def get_attackDisplay():
+    database = 'use suricata'
+    sql = 'select * from suricata.t_gjzs'
+    med = query(database, sql)
+    res = []
+    for tup in med:
+        temp = []
+        temp.append({'name': tup[1]})
+        temp.append({'name': tup[2], 'value': tup[3]})
+        res.append(temp)
+    return res
+
+if __name__ == '__main__':
+    print(get_attackDisplay())
     # print(res[0:10])
     # viewAssetData = []
     # res_queryAsset = get_queryAssetProportionData()
