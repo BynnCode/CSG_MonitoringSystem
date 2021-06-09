@@ -104,8 +104,25 @@ def get_attackDisplay():
         res.append(temp)
     return res
 
+def get_terminal_label():
+    database = 'use terminal_behavior'
+    res = {}
+    sql0 = 'select count(*) from packet_info_connection'
+    total = query(database, sql0)[0][0]
+    sql1 = 'select label,count(*) from terminal_behavior.packet_info_connection group by label'
+    num = query(database, sql1)
+    return {
+            "label"+str(num[0][0]):round(num[0][1]/total,5),
+            "label"+str(num[1][0]):round(num[1][1]/total,5),
+            "label"+str(num[2][0]):round(num[2][1]/total,5),
+            "label"+str(num[3][0]):round(num[3][1]/total,5),
+            "label"+str(num[4][0]):round(num[4][1]/total,5),
+            "label"+str(num[5][0]):round(num[5][1]/total,5),
+            "label"+str(num[6][0]):round(num[6][1]/total,5)
+        }
+
 if __name__ == '__main__':
-    print(get_attackDisplay())
+    print(get_terminal_label())
     # print(res[0:10])
     # viewAssetData = []
     # res_queryAsset = get_queryAssetProportionData()

@@ -21,12 +21,11 @@ var labelPercentageOption3 = {
 			}
 		},
 		center: ['50%', '75%'],
-		radius: ['80'],
+		radius: ['85'],
 		pointer: {
-			icon: 'path://M12.8,0.7l12,40.1H0.7L12.8,0.7z',
-			length: '45%',
-			width: 1,
-			offsetCenter: [0, '-40%'],
+			length: '55%',
+			width: 3,
+			offsetCenter: [10, '-30%'],
 			itemStyle: {
 				color: 'auto'
 			}
@@ -39,44 +38,37 @@ var labelPercentageOption3 = {
 			}
 		},
 		splitLine: {
-			length: 15,
+			length: 18,
 			lineStyle: {
 				color: 'auto',
-				width: 2
+				width: 3
 			}
 		},
 		axisLabel: {
-			color: '#464646',
-			fontSize: 20,
-			distance: -60,
+			color: '#fff',
+			fontSize: 8,
+			distance: -30,
 			formatter: function(value) {
-				if (value === 0.875) {
-					return '优';
-				} else if (value === 0.625) {
-					return '中';
-				} else if (value === 0.375) {
-					return '良';
-				} else if (value === 0.125) {
-					return '差';
-				}
+
 			}
 		},
 		title: {
-			offsetCenter: [0, '-20%'],
-			fontSize: 10
+			color:['#fff'],
+			offsetCenter: [0, '30%'],
+			fontSize: 15
 		},
 		detail: {
 			fontSize: 15,
-			offsetCenter: [0, '0%'],
+			offsetCenter: [0, '-28%'],
 			valueAnimation: true,
 			formatter: function(value) {
-				return Math.round(value * 100) + '分'; /////这里就要在数据库里新建一张表，将packet数量拿出来，显示的时候显示各个lable的packet数量，但是在表盘中显示就要输入百分比。
+				return (value*100).toFixed(3) + '%'; /////这里就要在数据库里新建一张表，将packet数量拿出来，显示的时候显示各个lable的packet数量，但是在表盘中显示就要输入百分比。
 			},
 			color: 'auto'
 		},
 		data: [{
-			value: 0.65,
-			name: 'Lable:2'
+			value: 0,
+			name: 'Label:19'
 		}]
 	}]
 };
