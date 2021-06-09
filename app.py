@@ -68,5 +68,11 @@ def attackType():
     attackTypeData = utils.get_attackType()
     return jsonify({"data":attackTypeData})
 
+@app.route('/terminalLabel',methods=['get','post'])
+def terminalLabel():
+    terminalLabelData = utils.get_terminal_label()
+    # 查询返回的数据里面有七条数据，还有一个label14(数值太小，显示会出错）
+    return jsonify({"data":terminalLabelData})
+
 if __name__ == '__main__':
     app.run()
