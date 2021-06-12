@@ -1,6 +1,6 @@
 # -*- codeing = utf-8 -*-
 from flask import Flask,render_template,jsonify
-import utils
+from controller import utils
 
 app = Flask(__name__)
 
@@ -17,7 +17,7 @@ def flow():
 @app.route('/suricata')
 def suricata():
     attackDisplayData = utils.get_attackDisplay()
-    return render_template("suricata.html",attackDisplayData=attackDisplayData)
+    return render_template("suricata.html", attackDisplayData=attackDisplayData)
 
 @app.route('/assetManage')
 def assetManage():
