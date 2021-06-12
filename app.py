@@ -74,5 +74,10 @@ def terminalLabel():
     # 查询返回的数据里面有七条数据，还有一个label14(数值太小，显示会出错）
     return jsonify({"data":terminalLabelData})
 
+@app.route('/packetLabelPerMinute',methods=['get','post'])
+def packetLabelPerMinute():
+    packetLabelPerMinuteData = utils.get_packetTotalLabelPerMinute()
+    return jsonify({"data":packetLabelPerMinuteData})
+
 if __name__ == '__main__':
     app.run()

@@ -31,17 +31,84 @@ function get_flowHotpoint(){
     $.ajax({
         url: "/flowHotpoint",
         success:function (data){
+            //先加载默认1min的数据
             for (var i = 0; i<10; i++){
-                flowHotpointOption.series[0].data[i].name =data.data[i][0];
-                flowHotpointOption.series[0].data[i].value =data.data[i][1];
+                flowHotpointOption.series[0].data[i].name =data.data[0][i][0];
+                flowHotpointOption.series[0].data[i].value =data.data[0][i][1];
             }
             flowHotpointChart.setOption(flowHotpointOption);
+            //通过下拉选项选择对应时间内的数据
+            $(".timeid1").on('click',function (){
+                if ($(".timeid1").val() == 1){
+                    for (var i = 0; i<10; i++){
+                        flowHotpointOption.series[0].data[i].name =data.data[0][i][0];
+                        flowHotpointOption.series[0].data[i].value =data.data[0][i][1];
+                    }
+                    flowHotpointChart.setOption(flowHotpointOption);
+                }
+                else if($(".timeid1").val() == 2){
+                    for (var i = 0; i<10; i++){
+                        flowHotpointOption.series[0].data[i].name =data.data[1][i][0];
+                        flowHotpointOption.series[0].data[i].value =data.data[1][i][1];
+                    }
+                    flowHotpointChart.setOption(flowHotpointOption);
+                }
+                else if ($(".timeid1").val() == 3){
+                    for (var i = 0; i<10; i++){
+                        flowHotpointOption.series[0].data[i].name =data.data[2][i][0];
+                        flowHotpointOption.series[0].data[i].value =data.data[2][i][1];
+                    }
+                    flowHotpointChart.setOption(flowHotpointOption);
+                }
+                else if ($(".timeid1").val() == 4){
+                    for (var i = 0; i<10; i++){
+                        flowHotpointOption.series[0].data[i].name =data.data[3][i][0];
+                        flowHotpointOption.series[0].data[i].value =data.data[3][i][1];
+                    }
+                    flowHotpointChart.setOption(flowHotpointOption);
+                }
+                else if ($(".timeid1").val() == 5){
+                    for (var i = 0; i<10; i++){
+                        flowHotpointOption.series[0].data[i].name =data.data[4][i][0];
+                        flowHotpointOption.series[0].data[i].value =data.data[4][i][1];
+                    }
+                    flowHotpointChart.setOption(flowHotpointOption);
+                }
+                else if ($(".timeid1").val() == 6){
+                    for (var i = 0; i<10; i++){
+                        flowHotpointOption.series[0].data[i].name =data.data[5][i][0];
+                        flowHotpointOption.series[0].data[i].value =data.data[5][i][1];
+                    }
+                    flowHotpointChart.setOption(flowHotpointOption);
+                }
+                else if ($(".timeid1").val() == 7){
+                    for (var i = 0; i<10; i++){
+                        flowHotpointOption.series[0].data[i].name =data.data[6][i][0];
+                        flowHotpointOption.series[0].data[i].value =data.data[6][i][1];
+                    }
+                    flowHotpointChart.setOption(flowHotpointOption);
+                }
+                else{
+                    flowHotpointChart.clear();
+                }
+            })
+
         },
         error:function (){
 
         }
     })
 }
+
+$(function (){
+    $(".timeid1").on('click',function (){
+        if($(".timeid1").val() == 1){
+
+        }
+    })
+})
+
+
 
 get_viewQueryAssets();
 get_flowTimeRank();
