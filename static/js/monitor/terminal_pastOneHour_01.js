@@ -5,7 +5,8 @@ var option;
 option = {
     color: ['#00DDFF', '#37A2FF', '#FFBF00'],
     title: {
-            text: '过去1小时内终端202.20.218.11的行为',
+            text: '终端202.20.218.11',
+            left:'center',
             textStyle: {
                 color: '#fff',
             },

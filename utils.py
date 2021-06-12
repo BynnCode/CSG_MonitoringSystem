@@ -71,11 +71,19 @@ def tesMapDataJson():
 
 def get_flowHotpoint():
     database = 'use suricata'
-    sql = 'select city,d1 from suricata.t_lldqfb'
-    res = query(database, sql)
-    res = sorted(res, key=(lambda x: x[1]))
-    res.reverse()
-    return res[0:10]
+    sql = 'select city,d1,d2,d3,d4,d5,d6,d7 from suricata.t_lldqfb'
+    # res返回七天内前十排名的城市
+    res = []
+    temp = query(database, sql)
+    for y in range(1,8):
+
+        medium = []
+        temp = sorted(temp, key=(lambda x: x[y]))
+        temp.reverse()
+        for t in temp[0:10]:
+            medium.append((t[0:1]+t[y:y+1]))
+        res.append(medium)
+    return res
 
 def get_normalAndAbnormalFlow():
     database = 'use suricata'
@@ -106,7 +114,6 @@ def get_attackDisplay():
 
 def get_terminal_label():
     database = 'use terminal_behavior'
-    res = {}
     sql0 = 'select count(*) from packet_info_connection'
     total = query(database, sql0)[0][0]
     sql1 = 'select label,count(*) from terminal_behavior.packet_info_connection group by label'
@@ -121,8 +128,37 @@ def get_terminal_label():
             "label"+str(num[6][0]):round(num[6][1]/total,5)
         }
 
+def get_packetOneLabelPerMinute(num):
+    database = 'use terminal_behavior'
+    sql = "select count(*) from packet_info_connection  where ts>= '2021-01-04 18:27:46.483' and ts < '2021-01-04 19:27:46.559' and label={} interval(1m) fill(prev)".format(num)
+    res = []
+    for temp in  query(database,sql):
+        if temp[1] == None:
+            res.append(0)
+        else:
+            res.append(temp[1])
+    return res
+
+def get_packetTotalLabelPerMinute():
+    total = []
+    total.append(get_packetOneLabelPerMinute(2))
+    total.append(get_packetOneLabelPerMinute(10))
+    total.append(get_packetOneLabelPerMinute(19))
+    total.append(get_packetOneLabelPerMinute(18))
+    total.append(get_packetOneLabelPerMinute(16))
+    total.append(get_packetOneLabelPerMinute(4))
+    total.append(get_packetOneLabelPerMinute(13))
+    return total
+
+
 if __name__ == '__main__':
-    print(get_terminal_label())
+    for i in get_flowHotpoint():
+        print(i)
+    # temp = []
+    # temp.append({'name':'by','value':2})
+    # temp.append({'name':'b','value':3})
+    # temp[0]['value'] = 4
+    # print(temp[0])
     # print(res[0:10])
     # viewAssetData = []
     # res_queryAsset = get_queryAssetProportionData()
