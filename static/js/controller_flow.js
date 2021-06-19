@@ -39,49 +39,50 @@ function get_flowHotpoint(){
             flowHotpointChart.setOption(flowHotpointOption);
             //通过下拉选项选择对应时间内的数据
             $(".timeid1").on('click',function (){
-                if ($(".timeid1").val() == 1){
+                var value = $(".timeid1").val();
+                if (value == 1){
                     for (var i = 0; i<10; i++){
                         flowHotpointOption.series[0].data[i].name =data.data[0][i][0];
                         flowHotpointOption.series[0].data[i].value =data.data[0][i][1];
                     }
                     flowHotpointChart.setOption(flowHotpointOption);
                 }
-                else if($(".timeid1").val() == 2){
+                else if(value == 2){
                     for (var i = 0; i<10; i++){
                         flowHotpointOption.series[0].data[i].name =data.data[1][i][0];
                         flowHotpointOption.series[0].data[i].value =data.data[1][i][1];
                     }
                     flowHotpointChart.setOption(flowHotpointOption);
                 }
-                else if ($(".timeid1").val() == 3){
+                else if (value == 3){
                     for (var i = 0; i<10; i++){
                         flowHotpointOption.series[0].data[i].name =data.data[2][i][0];
                         flowHotpointOption.series[0].data[i].value =data.data[2][i][1];
                     }
                     flowHotpointChart.setOption(flowHotpointOption);
                 }
-                else if ($(".timeid1").val() == 4){
+                else if (value == 4){
                     for (var i = 0; i<10; i++){
                         flowHotpointOption.series[0].data[i].name =data.data[3][i][0];
                         flowHotpointOption.series[0].data[i].value =data.data[3][i][1];
                     }
                     flowHotpointChart.setOption(flowHotpointOption);
                 }
-                else if ($(".timeid1").val() == 5){
+                else if (value == 5){
                     for (var i = 0; i<10; i++){
                         flowHotpointOption.series[0].data[i].name =data.data[4][i][0];
                         flowHotpointOption.series[0].data[i].value =data.data[4][i][1];
                     }
                     flowHotpointChart.setOption(flowHotpointOption);
                 }
-                else if ($(".timeid1").val() == 6){
+                else if (value == 6){
                     for (var i = 0; i<10; i++){
                         flowHotpointOption.series[0].data[i].name =data.data[5][i][0];
                         flowHotpointOption.series[0].data[i].value =data.data[5][i][1];
                     }
                     flowHotpointChart.setOption(flowHotpointOption);
                 }
-                else if ($(".timeid1").val() == 7){
+                else if (value == 7){
                     for (var i = 0; i<10; i++){
                         flowHotpointOption.series[0].data[i].name =data.data[6][i][0];
                         flowHotpointOption.series[0].data[i].value =data.data[6][i][1];
@@ -100,13 +101,6 @@ function get_flowHotpoint(){
     })
 }
 
-$(function (){
-    $(".timeid1").on('click',function (){
-        if($(".timeid1").val() == 1){
-
-        }
-    })
-})
 
 
 
