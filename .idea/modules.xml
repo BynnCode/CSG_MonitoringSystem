@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/dynamicDemo01.iml" filepath="$PROJECT_DIR$/.idea/dynamicDemo01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/CSG_MonitoringSystem.iml" filepath="$PROJECT_DIR$/.idea/CSG_MonitoringSystem.iml" />
     </modules>
   </component>
 </project>
