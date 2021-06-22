@@ -21,3 +21,8 @@ def normalAndAbnormalFlow():
 def attackType():
     attackTypeData = utils.get_attackType()
     return jsonify({"data": attackTypeData})
+
+@suricata_bp.route('/flowTrend',methods=['get', 'post'])
+def flowTrend():
+    flowTrendData = utils.get_flowTrend()
+    return jsonify({"data": flowTrendData})

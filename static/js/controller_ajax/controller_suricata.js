@@ -28,5 +28,21 @@ function get_attackType(){
     })
 }
 
+function get_flowTrend(){
+    $.ajax({
+        url: "/flowTrend",
+        success:function (data){
+            flowTrendOption.xAxis[0].data = data.data[0];
+            flowTrendOption.series[0].data = data.data[1];
+
+            flowTrendChart.setOption(flowTrendOption);
+        },
+        error:function (){
+
+        }
+    })
+}
+
 get_normalAndAbnormal()
 get_attackType()
+get_flowTrend()
