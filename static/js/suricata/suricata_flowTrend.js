@@ -1,8 +1,6 @@
-var chartDom = document.getElementById('suricata_flowTrend');
-var myChart = echarts.init(chartDom);
-var option;
+var flowTrendChart = echarts.init(document.getElementById('suricata_flowTrend'));
 
-option = {
+var flowTrendOption = {
     color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
     title: {
         text: ''
@@ -83,4 +81,4 @@ option = {
     ]
 };
 
-option && myChart.setOption(option);
+flowTrendChart.setOption(flowTrendOption);

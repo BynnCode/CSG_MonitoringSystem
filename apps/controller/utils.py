@@ -68,7 +68,6 @@ def tesMapDataJson():
     testMapData.append(d7)
     return testMapData
 
-
 def get_flowHotpoint():
     database = 'use suricata'
     sql = 'select city,d1,d2,d3,d4,d5,d6,d7 from suricata.t_lldqfb'
@@ -112,6 +111,16 @@ def get_attackDisplay():
         res.append(temp)
     return res
 
+def get_flowTrend():
+    database = 'use suricata'
+    sql = 'select * from suricata.t_gjllqs'
+    temp = query(database, sql)
+    res = [[],[]]
+    for t in temp:
+        res[0].append(t[0].strftime("%H:%M:%S.%f")[:-3])
+        res[1].append(t[1])
+    return res
+
 def get_terminal_label():
     database = 'use terminal_behavior'
     sql0 = 'select count(*) from packet_info_connection'
@@ -150,21 +159,49 @@ def get_packetTotalLabelPerMinute():
     total.append(get_packetOneLabelPerMinute(13))
     return total
 
+def get_numberOfAlarm():
+    database = 'use assetlog'
+    sql = 'select * from assetlog.t_warning_count'
+    temp = query(database,sql)
+    res = [[],[]]
+    for t in temp:
+        res[0].append(t[0].strftime("%H:%M:%S.%f")[:-3])
+        res[1].append(t[1])
+    return res
+
+def get_numberOfAlarmsAdded():
+    database = 'use assetlog'
+    sql = 'select * from assetlog.t_warning_type'
+    temp = query(database, sql)
+    res = [[],[],[],[]]
+    for t in temp:
+        res[0].append(t[0].strftime("%H:%M:%S.%f")[:-3])
+        res[1].append(t[1])
+        res[2].append(t[2])
+        res[3].append(t[3])
+    return res
+
+def get_evaluationStatics():
+    database = 'use assetlog'
+    sql = 'select * from assetlog.t_log_judge'
+    temp = query(database, sql)
+    res = [[], [], []]
+    for t in temp:
+        res[0].append(t[0].strftime("%H:%M:%S.%f")[:-3])
+        res[1].append(t[1])
+        res[2].append(t[2])
+    return res
+
+def get_numberOfAlarmsIP():
+    database = 'use assetlog'
+    sql = 'select * from assetlog.t_warning_top'
+    temp = query(database, sql)
+    res = [[],[]]
+    for t in temp:
+        res[0].append(str(t[1]))
+        res[1].append(t[2])
+    return res
 
 if __name__ == '__main__':
-    for i in get_flowHotpoint():
+    for i in get_numberOfAlarmsIP():
         print(i)
-    # temp = []
-    # temp.append({'name':'by','value':2})
-    # temp.append({'name':'b','value':3})
-    # temp[0]['value'] = 4
-    # print(temp[0])
-    # print(res[0:10])
-    # viewAssetData = []
-    # res_queryAsset = get_queryAssetProportionData()
-    # for i in range(len(res_queryAsset)):
-    #     if (i == 0):
-    #         continue
-    #     temp = {"value": res_queryAsset[i][2], "name": res_queryAsset[i][1]}
-    #     viewAssetData.append(temp)
-    # print(viewAssetData)
