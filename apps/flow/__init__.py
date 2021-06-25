@@ -29,11 +29,7 @@ def queryAssets():
 
 @flow_bp.route('/flowTimeRank', methods=['get', 'post'])
 def flowTimeRank():
-    flowTimeRankData = []
-    for re in utils.get_flowTimeRankData():
-        temp = list(re)
-        temp[0] = str(temp[0])
-        flowTimeRankData.append(temp)
+    flowTimeRankData = utils.get_flowTimeRankData()
     return jsonify({"data": flowTimeRankData})
 
 @flow_bp.route('/flowHotpoint', methods=['get', 'post'])

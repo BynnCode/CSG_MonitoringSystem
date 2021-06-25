@@ -33,12 +33,18 @@ def get_queryAssetProportionData():
     database = 'use suricata'
     sql = 'select * from suricata.t_bfwzc'
     res = query(database,sql)
+
     return res
 
 def get_flowTimeRankData():
     database = 'use suricata'
     sql = 'select * from suricata.t_dqllqs'
-    res = query(database,sql)
+    temp = query(database,sql)
+    res = []
+    for re in temp:
+        temp = list(re)
+        temp[0] = temp[0].strftime("%H:%M:%S.%f")[:-3]
+        res.append(temp)
     return res
 
 def get_testMapData():
@@ -202,6 +208,65 @@ def get_numberOfAlarmsIP():
         res[1].append(t[2])
     return res
 
+def get_SpecialInventory():
+    database = 'use assetlog'
+    sql = 'select * from assetlog.t_i_specialinventory'
+    res = query(database, sql)
+    return {"router":res[0][1],"web":res[0][2],"ips":res[0][3],"ids":res[0][4],"firewall":res[0][5],"virtual":res[0][6]}
+
+
+def get_assetEvaluate():
+    database = 'use assetlog'
+    sql1 = ['describe assetlog.t_i_inventory','describe assetlog.t_i_safety','describe assetlog.t_i_softwaretype','describe assetlog.t_i_at']
+    sql2 = ['select * from assetlog.t_i_inventory','select * from assetlog.t_i_safety','select * from assetlog.t_i_softwaretype','select * from assetlog.t_i_at']
+    assetEvaluateData = []
+    for j in range(len(sql1)):
+        res = []
+        res_name = query(database, sql1[j])
+        res_value = query(database, sql2[j])
+        for i in range(len(res_name)):
+            if (i == 0):
+                continue
+            temp = {"value": res_value[0][i], "name": res_name[i][0].upper()}
+            res.append(temp)
+        assetEvaluateData.append(res)
+    return assetEvaluateData
+
+def get_srcVulnerability():
+    database = 'use assetlog'
+    sql = 'select * from assetlog.t_i_bugdrivation'
+    temp = query(database, sql)
+    res = [[],[]]
+    for t in temp:
+        res[0].append(str(t[1]))
+        res[1].append(t[2])
+
+    return res
+# 资产漏洞表
+def get_assetVulnerability():
+    database = 'use assetlog'
+    sql = 'select * from assetlog.t_i_inventoryBug'
+    temp = query(database, sql)
+    res = [[],[]]
+    for t in temp:
+        res[0].append(str(t[1]))
+        res[1].append(t[2])
+
+    return res
+
+def get_localAsset():
+    database = 'use assetlog'
+    sql = 'select * from assetlog.t_i_province'
+    temp = query(database, sql)
+    res = [[],[]]
+    for t in temp:
+        res[0].append(str(t[1]))
+        res[1].append(t[2])
+
+    return res
+
+
+
+
 if __name__ == '__main__':
-    for i in get_numberOfAlarmsIP():
-        print(i)
+    print(get_localAsset())
