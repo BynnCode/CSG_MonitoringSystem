@@ -24,3 +24,13 @@ def assetEvaluate():
 def srcVulnerability():
     srcVulnerabilityData = utils.get_srcVulnerability()
     return jsonify({"data":srcVulnerabilityData})
+
+@asset_bp.route('/assetVulnerability', methods=['get', 'post'])
+def assetVulnerability():
+    assetVulnerabilityData = utils.get_assetVulnerability()
+    return jsonify({"data":assetVulnerabilityData})
+
+@asset_bp.route('/localAsset', methods=['get', 'post'])
+def localAsset():
+    localAssetData = utils.get_localAsset()
+    return jsonify({"data":localAssetData})

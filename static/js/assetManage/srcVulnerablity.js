@@ -26,14 +26,25 @@ var srcVulnerabilityOption = {
         color: 'white',
         type: 'bar',
         data: [],
-        itemStyle:{
-        color:'#90EE90'
+        itemStyle: {
+                color: new echarts.graphic.LinearGradient(
+                    0, 0, 0, 1,
+                    [
+                        {offset: 0, color: '#76EEC6'},
+                        {offset: 0.5, color: '#B0E2FF'},
+                        {offset: 1, color: '#4F4F4F'}
+                    ]
+                )
         },
         label: {
             show: true,
             position: 'right',
             valueAnimation: true,
-        }
+            textStyle:{
+                color:'#FFFFFF',
+            }
+        },
+
     }],
     legend: {
         show: false

@@ -14,7 +14,8 @@ var assetVulnerabilityOption = {
         axisLabel:{
             color: 'white'
         },
-        data: ['IP1', 'IP2', 'IP3', 'IP4', 'IP5'],
+        // data: ['IP1', 'IP2', 'IP3', 'IP4', 'IP5'],
+        data: [],
         inverse: true,
         animationDuration: 300,
         animationDurationUpdate: 300,
@@ -23,15 +24,26 @@ var assetVulnerabilityOption = {
     series: [{
         realtimeSort: true,
         name: 'X',
-        itemStyle:{
-            color:'#98FB98'
-                  },
+        itemStyle: {
+                color: new echarts.graphic.LinearGradient(
+                    0, 0, 0, 1,
+                    [
+                        {offset: 0, color: '#76EEC6'},
+                        {offset: 0.5, color: '#B0E2FF'},
+                        {offset: 1, color: '#4F4F4F'}
+                    ]
+                )
+        },
         type: 'bar',
-        data: [23,12,7,34,16],
+        // data: [23,12,7,34,16],
+        data : [],
         label: {
             show: true,
             position: 'right',
             valueAnimation: true,
+            textStyle:{
+                color:'#FFFFFF',
+            }
         }
     }],
     legend: {

@@ -2,7 +2,7 @@
 import taos
 import random
 #配置TDengine的全局主机名
-hostname = "td1"
+hostname = "dbsvr"
 
 #连接数据库
 def get_conn():
@@ -242,8 +242,31 @@ def get_srcVulnerability():
         res[1].append(t[2])
 
     return res
+# 资产漏洞表
+def get_assetVulnerability():
+    database = 'use assetlog'
+    sql = 'select * from assetlog.t_i_inventoryBug'
+    temp = query(database, sql)
+    res = [[],[]]
+    for t in temp:
+        res[0].append(str(t[1]))
+        res[1].append(t[2])
+
+    return res
+
+def get_localAsset():
+    database = 'use assetlog'
+    sql = 'select * from assetlog.t_i_province'
+    temp = query(database, sql)
+    res = [[],[]]
+    for t in temp:
+        res[0].append(str(t[1]))
+        res[1].append(t[2])
+
+    return res
+
 
 
 
 if __name__ == '__main__':
-    print(get_flowTimeRankData())
+    print(get_localAsset())

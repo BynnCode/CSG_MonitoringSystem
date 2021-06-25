@@ -2,6 +2,10 @@
 var assetEvaluateChart = echarts.init(document.getElementById('assetEvaluate'));
 
 var assetEvaluateOption = {
+    color:['#FC6E6E','#FAC858','#91CC75','#5C7BD9','#73C0DE','#FFDEAD',
+            '#F0FFFF','#E6E6FA','#87CEFA','#7FFFD4','#FFFF00','#FF8C00',
+            '#A020F0','#00BFFF','#76EEC6','#90EE90','#CAFF70','#FF7256',
+            '#FF82AB','#912CEE'],
     tooltip: {
         trigger: 'item'
     },
@@ -45,6 +49,10 @@ assetEvaluateChart.setOption(assetEvaluateOption);
 var safeDeviceChart = echarts.init(document.getElementById('safeDevice'));
 
 var safeDeviceOption = {
+    color:['#FC6E6E','#FAC858','#91CC75','#5C7BD9','#73C0DE','#FFDEAD',
+            '#F0FFFF','#E6E6FA','#87CEFA','#7FFFD4','#FFFF00','#FF8C00',
+            '#A020F0','#00BFFF','#76EEC6','#90EE90','#CAFF70','#FF7256',
+            '#FF82AB','#912CEE'],
     tooltip: {
         trigger: 'item'
     },
@@ -93,6 +101,10 @@ safeDeviceChart.setOption(safeDeviceOption);
 var softwareTypeChart = echarts.init(document.getElementById('softwareType'));
 
 var softwareTypeOption = {
+    color:['#FC6E6E','#FAC858','#91CC75','#5C7BD9','#73C0DE','#FFDEAD',
+            '#F0FFFF','#E6E6FA','#87CEFA','#7FFFD4','#FFFF00','#FF8C00',
+            '#A020F0','#00BFFF','#76EEC6','#90EE90','#CAFF70','#FF7256',
+            '#FF82AB','#912CEE'],
     tooltip: {
         trigger: 'item'
     },
@@ -141,6 +153,10 @@ softwareTypeChart.setOption(softwareTypeOption);
 var deviceTypeChart = echarts.init(document.getElementById('deviceType'));
 
 var deviceTypeChartOption = {
+    color:['#FC6E6E','#FAC858','#91CC75','#5C7BD9','#73C0DE','#FFDEAD',
+            '#F0FFFF','#E6E6FA','#87CEFA','#7FFFD4','#FFFF00','#FF8C00',
+            '#A020F0','#00BFFF','#76EEC6','#90EE90','#CAFF70','#FF7256',
+            '#FF82AB','#912CEE'],
     tooltip: {
         trigger: 'item'
     },

@@ -52,7 +52,42 @@ function get_srcVulnerability(){
     })
 }
 
+function get_assetVulnerability(){
+    $.ajax({
+        url: "/assetVulnerability",
+        success:function (data){
+            assetVulnerabilityOption.yAxis.data =data.data[0];
+            assetVulnerabilityOption.series[0].data =data.data[1];
+            assetVulnerabilityChart.setOption(assetVulnerabilityOption);
+
+        },
+        error:function (){
+
+        }
+    })
+}
+
+function get_localAsset(){
+    $.ajax({
+        url: "/localAsset",
+        success:function (data){
+            LocalOption.yAxis.data =data.data[0];
+            LocalOption.series[0].data =data.data[1];
+            LocalChart.setOption(LocalOption);
+
+        },
+        error:function (){
+
+        }
+    })
+}
+
+
+
 get_SpecialInventory();
 get_assetEvaluate();
 get_srcVulnerability();
+get_assetVulnerability();
+get_localAsset();
+
 
