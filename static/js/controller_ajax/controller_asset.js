@@ -90,4 +90,7 @@ get_srcVulnerability();
 get_assetVulnerability();
 get_localAsset();
 
+//定义刷新时间
+// setInterval(get_SpecialInventory,1000*10)
+
 
