@@ -5,16 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-    <script type="text/javascript" src="../static/js/rem.js"></script>
-	<script type="text/javascript" src="../static/js/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="../static/js/echarts.min.js"></script>
+    <script type="text/javascript" src="../static/js/public/rem.js"></script>
+	<script type="text/javascript" src="../static/js/public/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="../static/js/public/echarts.min.js"></script>
     <script type="text/javascript">
         var Server = {
           Data: {{ testMapData|tojson }}
         };
     </script>
     <link rel="stylesheet" href="static/css/flowStyle.css">
-    <title>南网计量监控系统平台</title>
+    <title>>XXXX监控系统平台</title>
 </head>
 <body style="visibility: hidden;">
 	<div class="topTitle">
@@ -22,7 +22,7 @@
             <ul style="margin-right: 2%;margin-left: 1%;">
                 <li class="nav_active"><a href="/flow"><i class="nav_1"></i>流量分析</a></li>
                     <li><a href="/suricata"><i class="nav_2"></i>攻击检测</a> </li>
-                    <li><a href='/assetManage'><i class="nav_6"></i>资产管理</a> </li>
+                    <li><a href='/terminalStatus'><i class="nav_6"></i>终端状态</a> </li>
             </ul>
         </div>
 		<div class="center-topTitle">
@@ -30,7 +30,7 @@
 		</div>
 		<div class="right nav">
             <ul style="margin-left: 2%;">
-                <li><a href='/logAnalyze'><i class="nav_4"></i>日志分析</a> </li>
+                <li><a href='/networkTraffic'><i class="nav_4"></i>网段流量</a> </li>
                 <li><a href="/monitor"><i class="nav_5"></i>监控系统</a> </li>
             </ul>
         </div>
