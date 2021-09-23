@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <script type="text/javascript" src="../static/js/public/rem.js"></script>
+	<script type="text/javascript" src="../static/js/public/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="../static/js/public/echarts.min.js"></script>
+	<script type="text/javascript" src="../static/js/public/china.js"></script>
+    <script type="text/javascript" src="../static/js/public/layDate-v5.3.1/layDate-v5.3.1/laydate/laydate.js"></script>
+    <link rel="stylesheet" href="../static/css/networkTraffic.css">
+    <title>南网计量监控系统平台</title>
+</head>
+
+<body style="visibility: hidden;">
+	<div class="topTitle">
+		<div class="left nav">
+            <ul style="margin-right: 2%;margin-left: 1%;">
+                    <li class="nav_active"><a href="/flow"><i class="nav_1"></i>流量分析</a></li>
+                    <li><a href="/suricata"><i class="nav_2"></i>攻击检测</a> </li>
+                    <li><a href='/terminalStatus'><i class="nav_6"></i>终端状态</a> </li>
+            </ul>
+        </div>
+		<div class="center-topTitle">
+		    <h1>XXXX监控系统平台</h1>
+		</div>
+		<div class="right nav">
+            <ul style="margin-left: 2%;">
+                <li><a href='/networkTraffic'><i class="nav_4"></i>网段流量</a> </li>
+                <li><a href="/monitor"><i class="nav_5"></i>监控系统</a> </li>
+            </ul>
+        </div>
+	</div>
+
+    <div class="container-flex" tabindex="0" hidefocus="true">
+        <div class="box-left">
+                <div class="title-box">
+                    <h6>网段终端总体统计</h6>
+                </div>
+                <div class="left-top">
+				<div class="chart-box" >
+                    <div class="left-name">
+                        <div class="txt">
+                        <h2>上传速率</h2>
+                        </div>
+                        <div class="txt">
+                            <h2>下载速率</h2>
+                        </div>
+                        <div class="txt">
+                            <h2>告警流数</h2>
+                        </div>
+                        <div class="txt">
+                            <h2>本地主机数</h2>
+                        </div>
+                        <div class="txt">
+                            <h2>远程主机数</h2>
+                        </div>
+                        <div class="txt">
+                            <h2>在线设备数</h2>
+                        </div>
+                         <div class="txt">
+                            <h2>离线设备数</h2>
+                        </div>
+                        <div class="txt">
+                            <h2>活跃流数</h2>
+                        </div>
+                    </div>
+                    <div class="left-num">
+                        <div class="Num">
+                            <h1>5.70</h1>
+                            <h1>Kbps</h1>
+                        </div>
+                        <div class="Num">
+                            <h1>4.81</h1>
+                            <h1>Kbps</h1>
+                        </div>
+                        <div class="Num">
+                            <h1>2</h1>
+                        </div>
+                        <div class="Num">
+                            <h1>41</h1>
+                        </div>
+                        <div class="Num">
+                            <h1>572</h1>
+                        </div>
+                        <div class="Num">
+                            <h1>72</h1>
+                        </div>
+                        <div class="Num">
+                            <h1>10</h1>
+                        </div>
+                        <div class="Num">
+                            <h1>5449</h1>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="box-center">
+            <div class="center-top">
+                <div class="title-box">
+                    <h6>网段终端总体统计</h6>
+                </div>
+                <div class="center-terminal">
+                    <div id="center-terminal-detail"></div>
+                </div>
+            </div>
+            <div class="center-mid">
+                <div class="title-box">
+                    <h6>活跃流表</h6>
+                </div>
+                <div class="center-active">
+                    <div class="center-active-detail">
+                        <div class="active-detail-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>上层应用协议</th>
+                                        <th>传输层协议</th>
+                                        <th>客户端</th>
+                                        <th>服务器端</th>
+                                        <th>持续时间</th>
+                                        <th>前向流传输速率</th>
+                                        <th>后向流传输速率</th>
+                                        <th>传输总字节数</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <td>HTTP</td>
+                                    <td>TCP</td>
+                                    <td>192.168.1.2</td>
+                                    <td>178.62.3.29</td>
+                                    <td>00:58</td>
+                                    <td>3.12Mbit/s</td>
+                                    <td>2.56Mbit/s</td>
+                                    <td>11.32MB</td>
+                                </tbody>
+                                <tbody>
+                                    <td>HTTP</td>
+                                    <td>TCP</td>
+                                    <td>175.24.84.198</td>
+                                    <td>172.17.0.16</td>
+                                    <td>00:27</td>
+                                    <td>2.32Mbit/s</td>
+                                    <td>3.59Mbit/s</td>
+                                    <td>12.56MB</td>
+                                </tbody>
+                                <tbody>
+                                    <td>HTTP</td>
+                                    <td>TCP</td>
+                                    <td>173.24.56.72</td>
+                                    <td>178.35.84.125</td>
+                                    <td>00:45</td>
+                                    <td>1.25Mbit/s</td>
+                                    <td>3.45Mbit/s</td>
+                                    <td>10.58MB</td>
+                                </tbody>
+                                <tbody>
+                                    <td>HTTP</td>
+                                    <td>TCP</td>
+                                    <td>192.168.1.2</td>
+                                    <td>178.62.3.29</td>
+                                    <td>00:52</td>
+                                    <td>3.24Mbit/s</td>
+                                    <td>2.65Mbit/s</td>
+                                    <td>12.72MB</td>
+                                </tbody>
+                                <tbody>
+                                    <td>HTTP</td>
+                                    <td>TCP</td>
+                                    <td>176.56.32.164</td>
+                                    <td>172.78.95.152</td>
+                                    <td>00:36</td>
+                                    <td>2.58Mbit/s</td>
+                                    <td>3.16Mbit/s</td>
+                                    <td>11.40MB</td>
+                                </tbody>
+                                <tbody>
+                                    <td>HTTP</td>
+                                    <td>TCP</td>
+                                    <td>175.25.75.168</td>
+                                    <td>176.64.68.142</td>
+                                    <td>00:24</td>
+                                    <td>3.72Mbit/s</td>
+                                    <td>2.56Mbit/s</td>
+                                    <td>12.85MB</td>
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<div class="center-bottom">
+                <div class="title-box">
+                    <h6>网段流量时序图</h6>
+                    <select class='segmentTraffic' >
+                        <option value="1">网段1</option>
+                        <option value="2">网段2</option>
+                        <option value="3">网段3</option>
+                        <option value="4">网段4</option>
+                        <option value="5">网段5</option>
+                        <option value="6">网段6</option>
+                        <option value="7">网段7</option>
+                    </select>
+                </div>
+                <div class="timeInterval">
+                    <input placeholder="请选择起始时间" class="laydate-icon" id="startTime" value="">
+                    <input placeholder="请选择结束时间" class="laydate-icon" id="endTime" value="">
+                </div>
+
+                <div class="center-flowTiming">
+                    <div id="center-flowTiming-detail"></div>
+                </div>
+			</div>
+
+        </div>
+
+    </div>
+
+</body>
+
+<script type="text/javascript" src="../static/js/networkTraffic/activeFlowTable.js"></script>
+<script type="text/javascript" src="../static/js/networkTraffic/networkSegmentTerminal.js"></script>
+<script type="text/javascript" src="../static/js/networkTraffic/segmentTraffic.js"></script>
+<script type="text/javascript" src="../static/js/controller_ajax/controller_netTraffic.js"></script>
+
+<script type="text/javascript">
+    laydate.render({
+      elem: '#startTime'
+      ,type: 'datetime'
+    });
+    laydate.render({
+      elem: '#endTime'
+      ,type: 'datetime'
+    });
+</script>
+
+<script type="text/javascript">
+    $('document').ready(function () {
+        $("body").css('visibility', 'visible');
+
+    })
+</script>
+
+
+</html>

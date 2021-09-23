@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <script type="text/javascript" src="../static/js/public/rem.js"></script>
+	<script type="text/javascript" src="../static/js/public/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="../static/js/public/echarts.min.js"></script>
+	<script type="text/javascript" src="../static/js/public/china.js"></script>
+    <script type="text/javascript" src="../static/js/public/layDate-v5.3.1/layDate-v5.3.1/laydate/laydate.js"></script>
+    <script type="text/javascript" src="../static/js/public/js.jquery_ba_resize-master/js.jquery_ba_resize-master/js/jquery_ba_resize/resources/jquery.ba-resize.js"></script>
+<!--    <link rel="stylesheet" href="../static/css/assetManageStyle.css">-->
+    <link rel="stylesheet" href="../static/css/terminalStatus.css">
+    <title>南网计量监控系统平台</title>
+</head>
+
+<body style="visibility: hidden;">
+	<div class="topTitle">
+		<div class="left nav">
+            <ul style="margin-right: 2%;margin-left: 1%;">
+                <li class="nav_active"><a href="/flow"><i class="nav_1"></i>流量分析</a></li>
+                <li><a href="/suricata"><i class="nav_2"></i>攻击检测</a> </li>
+                <li><a href='/terminalStatus'><i class="nav_6"></i>终端状态</a> </li>
+            </ul>
+        </div>
+		<div class="center-topTitle">
+		    <h1>XXXX监控系统平台</h1>
+		</div>
+		<div class="right nav">
+            <ul style="margin-left: 2%;">
+                <li><a href='/networkTraffic'><i class="nav_4"></i>网段流量</a> </li>
+                <li><a href="/monitor"><i class="nav_5"></i>监控系统</a> </li>
+            </ul>
+        </div>
+	</div>
+
+    <div class="container-flex" tabindex="0" hidefocus="true">
+        <div class="box-left">
+            <div class="title-box">
+                <h6>网段终端总体统计</h6>
+            </div>
+            <div class="left-top">
+                <div class="chart-box" >
+                <div class="left-name">
+                    <div class="txt">
+                    <h2>上传速率</h2>
+                    </div>
+                    <div class="txt">
+                        <h2>下载速率</h2>
+                    </div>
+                    <div class="txt">
+                        <h2>告警流数</h2>
+                    </div>
+                    <div class="txt">
+                        <h2>本地主机数</h2>
+                    </div>
+                    <div class="txt">
+                        <h2>远程主机数</h2>
+                    </div>
+                    <div class="txt">
+                        <h2>在线设备数</h2>
+                    </div>
+                     <div class="txt">
+                        <h2>离线设备数</h2>
+                    </div>
+                    <div class="txt">
+                        <h2>活跃流数</h2>
+                    </div>
+                </div>
+                <div class="left-num">
+                    <div class="Num">
+                        <h1>5.70</h1>
+                        <h1>Kbps</h1>
+                    </div>
+                    <div class="Num">
+                        <h1>4.81</h1>
+                        <h1>Kbps</h1>
+                    </div>
+                    <div class="Num">
+                        <h1>2</h1>
+                    </div>
+                    <div class="Num">
+                        <h1>41</h1>
+                    </div>
+                    <div class="Num">
+                        <h1>572</h1>
+                    </div>
+                    <div class="Num">
+                        <h1>72</h1>
+                    </div>
+                    <div class="Num">
+                        <h1>10</h1>
+                    </div>
+                    <div class="Num">
+                        <h1>5449</h1>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+            <div class="title-box">
+                <h6>终端类型统计</h6>
+            </div>
+<!--            <div class="center-left-devices">-->
+<!--                <div id="devicesTypes"></div>-->
+<!--            </div>-->
+        </div>
+        <div class="box-center">
+            <div class="center-top">
+                <div class="center-left">
+                    <div class="center-left-active">
+                        <div id="left-active">
+
+                        </div>
+                    </div>
+                    <div class="center-left-inactive">
+                        <div id="left-inactive">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="center-center">
+                    <div id="terminalLocation"></div>
+                </div>
+                <div class="center-right">
+
+                    <div class="center-right-hosts">
+                        <div id="topHosts"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="center-mid">
+                <div class="title-box">
+                    <h6>终端通信情况表</h6>
+                </div>
+                <div class="center-active">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>IP</th>
+                                <th>位置</th>
+                                <th>流数</th>
+                                <th>总发送字节数</th>
+                                <th>名称</th>
+                                <th>上次出现时间</th>
+                                <th>上下行速率</th>
+                                <th>总字节数</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <td>192.168.1.2</td>
+                            <td>Local</td>
+                            <td>24</td>
+                            <td>342Bytes</td>
+                            <td>gateway</td>
+                            <td>02:40</td>
+                            <td>2.56Mbit/s</td>
+                            <td>4.61KB</td>
+                        </tbody>
+                        <tbody>
+                            <td>175.24.84.198</td>
+                            <td>Local</td>
+                            <td>40</td>
+                            <td>312Bytes</td>
+                            <td>gateway</td>
+                            <td>03:22</td>
+                            <td>3.24Mbit/s</td>
+                            <td>5.21KB</td>
+                        </tbody>
+                        <tbody>
+                            <td>173.24.56.72</td>
+                            <td>Local</td>
+                            <td>12</td>
+                            <td>420Bytes</td>
+                            <td>gateway</td>
+                            <td>02:24</td>
+                            <td>1.12Mbit/s</td>
+                            <td>3.32KB</td>
+                        </tbody>
+                        <tbody>
+                            <td>178.62.3.29</td>
+                            <td>Local</td>
+                            <td>16</td>
+                            <td>256Bytes</td>
+                            <td>gateway</td>
+                            <td>01:36</td>
+                            <td>2.42Mbit/s</td>
+                            <td>2.24KB</td>
+                        </tbody>
+                        <tbody>
+                            <td>176.56.32.164</td>
+                            <td>Local</td>
+                            <td>25</td>
+                            <td>326Bytes</td>
+                            <td>gateway</td>
+                            <td>02:35</td>
+                            <td>3.35Mbit/s</td>
+                            <td>5.27KB</td>
+                        </tbody>
+<!--                        <tbody>-->
+<!--                            <td>176.64.68.142</td>-->
+<!--                            <td>Local</td>-->
+<!--                            <td>35</td>-->
+<!--                            <td>252Bytes</td>-->
+<!--                            <td>gateway</td>-->
+<!--                            <td>03:28</td>-->
+<!--                            <td>1.27Mbit/s</td>-->
+<!--                            <td>3.45KB</td>-->
+<!--                        </tbody>-->
+                    </table>
+                </div>
+            </div>
+			<div class="center-bottom">
+                <div class="title-box">
+                    <h6>终端流量时序图</h6>
+                    <select class='terminalFlow' >
+                        <option value="1">终端1</option>
+                        <option value="2">终端2</option>
+                        <option value="3">终端3</option>
+                        <option value="4">终端4</option>
+                        <option value="5">终端5</option>
+                        <option value="6">终端6</option>
+                        <option value="7">终端7</option>
+                    </select>
+                </div>
+                <div class="timeInterval">
+                    <input placeholder="请选择起始时间" class="laydate-icon" id="startTime" value="">
+                    <input placeholder="请选择结束时间" class="laydate-icon" id="endTime" value="">
+                </div>
+                <div id="center-flowTiming-sent"></div>
+                <div id="center-flowTiming-recived"></div>
+			</div>
+
+        </div>
+
+    </div>
+
+</body>
+
+<script type="text/javascript" src="../static/js/terminalStatus/terminalLocationMap.js"></script>
+<script type="text/javascript" src="../static/js/terminalStatus/devicesTypes.js"></script>
+<script type="text/javascript" src="../static/js/terminalStatus/topHosts.js"></script>
+<script type="text/javascript" src="../static/js/terminalStatus/flowTimingSent.js"></script>
+<script type="text/javascript" src="../static/js/terminalStatus/flowTimingRecived.js"></script>
+<script type="text/javascript" src="../static/js/terminalStatus/activeTerminal.js"></script>
+<script type="text/javascript" src="../static/js/terminalStatus/inactiveTerminal.js"></script>
+<script type="text/javascript" src="../static/js/controller_ajax/controller_netStatus.js"></script>
+
+<script type="text/javascript">
+
+    laydate.render({
+      elem: '#startTime'
+      ,type: 'datetime'
+    });
+    laydate.render({
+      elem: '#endTime'
+      ,type: 'datetime'
+    });
+</script>
+
+<script type="text/javascript">
+    $('document').ready(function () {
+        $("body").css('visibility', 'visible');
+        var localData = [$('#teacher').val(), $('#start').val() + '/' + $('#end').val(), $('#leader').val()]
+        localStorage.setItem("data", localData);
+
+    })
+</script>
+
+
+</html>
